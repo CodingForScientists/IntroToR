@@ -1,0 +1,325 @@
+---
+title: "Vectors and Descriptive Statistics"
+subtitle: "R Syntax 3"
+output: html_notebook
+---
+
+## Vectors: Collecting Values Together into a Single Variable Name
+
+In R, it is rare for you to create dozens of variables; usually, putting
+data together as a dataset into a single variable makes work simpler!
+
+Data is grouped together into a data structure.  R supports many kinds of data structures (e.g. matrices, lists, dataframes, etc), but the simplest one is
+the *vector*, a simple sequence of values.  We can get started on many statistics
+just using vectors, and most operations on vectors work on the other data 
+structures, making vectors a great place to get started in R.
+
+
+## Creating Vectors
+
+Many functions exist in R to quickly create vectors:
+
+  - **`c(1, 3, 5)`**: combine values into the vector  *(1, 3, 5)*.
+  - **`1:5`**: create a vector of the values 1 through 5 *(1, 2, 3, 4, 5)*
+  - **`seq(1, 5)`**: Also creates a vector of 1 through 5 *(1, 2, 3, 4, 5)*
+  - **`seq(1, 5, by=2)`**:  1 through 5, every 2 values  *(1, 3, 5)*
+  - **`seq(1, 5, length.out=2)`** Two total values from 1 through 5 *(1, 5)*
+  
+
+**Exercises**
+
+Make a vector "data" with the values 2, 2, 5, 7, 2
+```{r}
+data <- c(2, 2, 5, 7, 2)
+data
+```
+
+Make a vector "data" with the values 4, 6, 7, 3, 4
+```{r}
+
+```
+
+
+Make a vector "data" with the values 5, 3, 2
+```{r}
+
+```
+
+
+Make a vector "data" with the values T, F, F, T
+```{r}
+
+```
+
+
+Make a vector "data" with the values 2.6, 3.2, 1.1, 0.9
+```{r}
+
+```
+
+
+
+Without using the c() function, make a vector "data" with the values 1, 2, 3, 4
+```{r}
+
+```
+
+
+Without using the c() function, make a vector "data" with the values 1, 3, 5, 7
+```{r}
+
+```
+
+
+Without using the c() function, make a vector "data" with the values -20 through 20
+```{r}
+
+```
+
+Make a vector "data" with 10 values evenly space from 1 to 35
+```{r}
+
+```
+
+
+Make a vector with the values (1, 2, 3, 4.4, 5).  What is strange about this
+vector?
+```{r}
+
+```
+
+Makea vector with the values (T, F, 3, F, T).  What is strange about this vector?
+```{r}
+
+```
+
+
+## Summary Statistics on Vectors
+
+Many functions take sequences of data like vectors as an input.  They are really
+useful, because they don't care how much data you have!
+
+Let's start with these functions: `sort()`, `length()` `sum()`, `mean()`.
+
+
+**Exercises**
+
+Sort this dataset in ascending order (i.e. from low to high): (6, 2, 5, 3, 4)
+```{r}
+
+```
+
+Using an optional input to the `sort()` function:
+Sort this dataset in descending order (i.e. from high to low): (6, 2, 5, 3, 4)
+```{r}
+
+```
+
+
+
+Calculate the length of the vector (1, 4, 5).  What does the length function do?
+```{r}
+
+```
+
+Calculate the sum of all the values from -5 to 5.
+```{r}
+
+```
+
+Calculate the sum of all the values from one to one million!  Does it take long?
+```{r}
+
+```
+
+Calculate the mean of the dataset (1, 5, 3, 2).
+```{r}
+
+```
+
+
+Without using the `mean()` function, calculate the mean of the dataset (1, 5, 3, 2)
+*Tip*: The mean is the sum of all the values divided by the total number of values.
+```{r}
+
+```
+
+
+## Vectorized Tranformations on Vectors: R's Cycle Rule
+
+All of the math and logical operations in R (in fact, most operatoins in R)
+work as "vectorized" operations.  This means that if a calculation is meant for
+one value, it is automatically repeated for every value in the data structure.
+
+For example, to add 1 to all values from 10 to 15 is as simple as `10:15 + 1`
+Let's try it out!
+
+
+**Exercises**
+
+Multiply all the values from 1 to 5 by 10.
+```{r}
+1:5 * 10
+```
+
+
+Subtract 1000 from all the values from 1 to 10.
+```{r}
+
+```
+
+
+Check each value from 1 to 10 if it is greater than 5 (tip: answer should have 5 Fs and 5 Ts)
+```{r}
+
+```
+
+
+Check each value from 1 to 10 if the value's square (power of 2) is less than 10.
+```{r}
+
+```
+
+
+calculate the square root of all the values from 1 to 10.
+```{r}
+
+```
+
+
+Calculate the sum of squares of the values 1 through 10
+
+```{r}
+
+```
+
+
+Calculate the square root of the sum of squares of the values 1 through 10
+
+```{r}
+
+```
+
+
+
+When math operations like the sum or mean are done on logical values (T and F),
+R automatically converts them to 1 and 0, respectively.  This is a useful feature,
+and helps to calculate **counts** and **proportions**.  Let's try it out!
+
+How many values are there greater than 5 in this dataset: (1, 6, 3, 5, 7)?
+```{r}
+data <- c(1, 6, 3, 5, 7)
+sum(data > 5)
+```
+
+What proportion (i.e. percentage) of values in the dataset are greater than 5?
+(1 means 100%, and 0 is 0%)
+```{r}
+data <- c(1, 6, 3, 5, 7)
+mean(data > 5)
+```
+
+How many values in the dataset (5, 7, -2, -4, -3) are negative?
+```{r}
+
+```
+
+
+What proportion of values in the dataset 1 through 50 are greater than the
+dataset's mean?
+```{r}
+
+```
+
+
+How many values in the dataset (5, 8, 4, 6, 5, 7, 5) are equal to 5?
+```{r}
+
+```
+
+
+What proportion of the values from 1 to 100 are divisible by 2 
+(i.e. has a remainder of 0 after dividing the value by 2)?
+(reminder: the `%%` operator is used to get the remainder from integer division).
+```{r}
+
+```
+
+
+## Cycle Rule: Vectorizing along multiple vectors
+
+This vectorization rule also applies when working with multiple vectors, letting
+you add up vectors together.  The way R does this is called the **"Cycle Rule"**;
+it cycles through each value in the vectors, doing the operation on each in turn.
+It continues cycling through values until the *longest* vector is finished.
+
+
+Add up all the values in dataset "data1" with the values 1 through 5
+and all the values in dataset "data2" with the values 21 through 25
+```{r}
+1:5 + 21:25
+```
+
+Same as above, but creating variables first.
+```{r}
+data1 <- 1:5
+data2 <- 21:25
+data1 + data2
+```
+
+
+Add up all the values between the values 1 through 5 and 10 through 14.
+```{r}
+
+```
+
+
+Multiply these two datasets together: (-1, 0, 1, 0, -1) and (1, 2, 3, 4, 5)
+```{r}
+
+```
+
+
+
+## Subsetting Data: Selecting Values from Vectors
+
+Once you've collected data together, you're not stuck with all of your data;
+a subset of a dataset can also be extracted out!
+
+
+
+```{r}
+a <- 11:20
+a[2:5]
+?which
+a[a > 15]
+?subset
+subset(a, a > 15)
+a[which(a > 15)]
+a[2:length(a)]
+```
+
+
+
+
+
+
+
+## Functions with a variable number of inputs
+
+
+```{r}
+av <- function(...){mean(c(...))}
+av(3, 4, 5)
+av(5)
+av(6, 7, 8, 9)
+```
+
+
+
+
+```{r}
+a <- function(..., x=5, y=3){x + y}
+
+```
+
