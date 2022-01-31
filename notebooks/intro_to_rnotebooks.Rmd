@@ -98,6 +98,7 @@ What is the whole-number remainder after dividing 15 by 2?
 
 ```
 
+
 ## Variable Assignment
 
 Want to use the same data over and over again, in different calculations? No problem! Just assign the data a variable name, and R will keep it around in memory!
