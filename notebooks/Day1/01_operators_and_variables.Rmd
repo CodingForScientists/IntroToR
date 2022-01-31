@@ -29,19 +29,19 @@ Example: What is 3 plus 2?
 What is 6 plus 4?
 
 ```{r}
-6 + 4
+
 ```
 
 What is 4 minus 7?
 
 ```{r}
-4 - 7
+
 ```
 
 What is 2 times 3?
 
 ```{r}
-2 * 3
+
 ```
 
 *Tip*: The Ctrl-PageDown keyboard shortcut moves your curse directly to the next code block.
@@ -49,13 +49,13 @@ What is 2 times 3?
 What is two to the third power?
 
 ```{r}
-2 ^ 3
+
 ```
 
 What is ten plus negative 3?
 
 ```{r}
-10 + -3
+
 ```
 
 ### True division vs. Integer Division
@@ -65,19 +65,19 @@ Sometimes you want to divide numbers and get the results as a decimal number (e.
 What is 100 divided by 7 (i.e. How many times does 7 go into 100, including the decimal part)?
 
 ```{r}
-100 / 7
+
 ```
 
 How many (whole) times does 7 go into 100? (Hint: integer division)
 
 ```{r}
-100 %/% 7
+
 ```
 
 What is the whole-number remainder after dividing 100 by 7?
 
 ```{r}
-100 %% 7
+
 ```
 
 What is 15 divided by 2?
@@ -111,7 +111,9 @@ Want to use the same data over and over again, in different calculations? No pro
 *Tip*: Which should you use, `<-` (the "arrow") or `=` (the "equals sign")?\
 In most cases, it doesn't really matter. Here's a short post discussing it if you're interested: <https://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html>
 
-**Exercises** Assign the requested variable names to the values listed. Confirm that it worked by by putting the variable on its own line at the end of the block.
+**Exercises** Practice variable assignment and printing in R, training your motor
+skills by assigning the requested variable names to the values listed. 
+Confirm that it worked by by putting the variable on its own line at the end of the block.
 
 *Tip*: Don't use copy-and-paste during this course! These exercises are here to help you practice your motor skills, learn keyboard shortcuts, and encounter simple errors early on, so you can be comfortable with the basics before we start doing more advanced things.\
 Take your time and absorb each skill before moving to the next one, there is no rush!
@@ -197,42 +199,42 @@ Add together the last three variables, and assign it to "result"
 
 ```
 
-Assign 5 to the variable "7seven". Does it work?\
+Assign 5 to the variable "7seven". Does it work?
 If not, What error message do you see? What is it trying to tell you?
 
 ```{r}
 
 ```
 
-Assign 5 to the variable "seven7". Does it work?\
+Assign 5 to the variable "seven7". Does it work?
 If not, What error message do you see? What is it trying to tell you?
 
 ```{r}
 
 ```
 
-Assign 42 to the variable "the answer". Does it work?\
-If not, What error message do you see? What is it trying to tell you?
-
-```{r}
-x <- 3
-```
-
-Assign 42 to the variable "the_answer". Does it work?\
+Assign 42 to the variable "the answer". Does it work?
 If not, What error message do you see? What is it trying to tell you?
 
 ```{r}
 
 ```
 
-Assign 42 to the variable "the-answer". Does it work?\
+Assign 42 to the variable "the_answer". Does it work?
 If not, What error message do you see? What is it trying to tell you?
 
 ```{r}
 
 ```
 
-Assign 42 to the variable "theAnswer". Does it work?\
+Assign 42 to the variable "the-answer". Does it work?
+If not, What error message do you see? What is it trying to tell you?
+
+```{r}
+
+```
+
+Assign 42 to the variable "theAnswer". Does it work?
 If not, What error message do you see? What is it trying to tell you?
 
 ```{r}
