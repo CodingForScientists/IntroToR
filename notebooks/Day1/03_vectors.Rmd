@@ -202,7 +202,7 @@ Calculate the square root of the sum of squares of the values 1 through 10
 
 
 
-When math operations like the sum or mean are done on logical values (T and F),
+When math operations like the `sum()` or `mean()` are done on logical values (T and F),
 R automatically converts them to 1 and 0, respectively.  This is a useful feature,
 and helps to calculate **counts** and **proportions**.  Let's try it out!
 
@@ -236,6 +236,33 @@ How many values in the dataset (5, 8, 4, 6, 5, 7, 5) are equal to 5?
 ```{r}
 
 ```
+
+
+What is the average height of the men in this dataset?  Of the women?
+heights: (140, 150, 144, 128, 152, 148, 175, 164, 156, 149, 188, 201)
+isMale:  (T, F, F, F, T, T, F, F, T, T, F, T)
+```{r}
+
+```
+
+
+What proportion of the nucleotides in this DNA sequence is Cytosine?
+*Note*: To make "character" (i.e. text, string) values, put single-quotes or double-quotes around the value
+```{r}
+dna <- c("C", "G", "A", "T", "G", "C", "T", "G")
+dna
+```
+
+
+What proportion of the nucleotides in this DNA sequence is either Argenine or Thymine?
+*Note*: The `strsplit()` function splits up a single string into a vector of strings. 
+```{r}
+dna <- strsplit("CGTATATAGGGCAGGAT", "")
+dna
+
+```
+
+
 
 
 What proportion of the values from 1 to 100 are divisible by 2 

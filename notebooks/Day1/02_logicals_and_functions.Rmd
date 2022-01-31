@@ -248,9 +248,9 @@ print("Success!")
 
 Make the function `isFour()` that returns TRUE if the input is four, False if not.
 ```{r}
-# Function here
+# Function here:
 
-# Test below
+# Run the Tests below to see if the function works as requested
 stopifnot(
   isFour(3) == FALSE,
   isFour(4) == TRUE
@@ -262,7 +262,9 @@ print("Success!")
 Make the function `isPositive()` that returns TRUE if the input is greater or equal to zero, False if not.  (in this case, we'll pretend zero is positive)
 
 ```{r}
+# Function here:
 
+# Run the Tests below to see if the function works as requested
 stopifnot(
   isPositive(3) == TRUE,
   isPositive(-2) == FALSE,
@@ -275,7 +277,9 @@ print("Success!")
 Make the function `square()` that returns the square of the input.
 ```{r}
 
+# Function here:
 
+# Run the Tests below to see if the function works as requested
 stopifnot(
   square(3) == 9,
   square(4) == 16
@@ -286,6 +290,9 @@ print("Success!")
 Make a function `not()` that returns False if the input is True, True if False
 
 ```{r}
+# Function here:
+
+# Run the Tests below to see if the function works as requested
 stopifnot(
   not(T) == F,
   not(F) == T
@@ -309,6 +316,9 @@ add(4, 6)
 
 Make a function `subtract()` that subtracts the first input from the second.
 ```{r}
+# Function here:
+
+# Run the Tests below to see if the function works as requested
 stopifnot(
   subtract(5, 3) == 2,
   subtract(2, 5) == -3,
@@ -321,6 +331,9 @@ print("Success!")
 Make a function `isGreater()` that returns True if the first input is greater than the second, False if not.
 
 ```{r}
+# Function here:
+
+# Run the Tests below to see if the function works as requested
 stopifnot(
   isGreater(3, 4) == FALSE,
   isGreater(4, 3) == TRUE,
@@ -332,6 +345,9 @@ print("Success!")
 
 Make a function `sumOfSquares()` that adds together the squares of each input.
 ```{r}
+# Function here:
+
+# Run the Tests below to see if the function works as requested
 stopifnot(
   sumOfSquares(1, 2) == 5,
   sumOfSquares(2, 3) == 13,
@@ -343,6 +359,9 @@ print("Success!")
 
 Make a function `average()` that calculates the mean of the three inputs (the sum of the inputs, divided by the number of inputs)
 ```{r}
+# Function here:
+
+# Run the Tests below to see if the function works as requested
 stopifnot(
   average(3, 3, 3) == 3,
   average(3, 4, 5) == 4,
@@ -360,6 +379,9 @@ with the default.  Any inputs that don't have default values will still be
 required for the function to run.
 
 ```{r}
+# Function here:
+
+# Run the Tests below to see if the function works as requested
 add <- function(x, y=1){x + y}
 add(3)  # 4
 add(4)  # 5
@@ -376,6 +398,9 @@ add(y=4, x=3)  # 7
 Make the function `addN()` that adds 3 to whatever number is supplied by default,
 but can also add other numbers.
 ```{r}
+# Function here:
+
+# Run the Tests below to see if the function works as requested
 addN <- function(x, y=3){x + y}
 
 stopifnot(
@@ -393,7 +418,9 @@ Make the function `subN()` that subtracts zero from whatever number is supplied
 by default, but can also subtract other numbers.
 
 ```{r}
+# Function here:
 
+# Run the Tests below to see if the function works as requested
 stopifnot(
   subN(4, 3) == 1,
   subN(5) == 5,
@@ -437,7 +464,9 @@ isPositive <- function(x, incZero=F){ifelse(incZero == F, x > 0, x >= 0)}
 Make the function `sub2()` that subtracts the first number minus the second 
 normally, but subtracts the second number minus the first if "reverse" is True 
 ```{r}
+# Function here:
 
+# Run the Tests below to see if the function works as requested
 stopifnot(
   sub2(3, 2) == 1,
   sub2(2, 3) == -1,
@@ -452,7 +481,9 @@ Make the function `math()` that adds two numbers if "add" is True and subtracts
 them if "add" is False
 
 ```{r}
+# Function here:
 
+# Run the Tests below to see if the function works as requested
 stopifnot(
   math(2, 3) == 5,
   math(5, 3, add=T) == 8,
@@ -465,6 +496,9 @@ stopifnot(
 Make the function `roundnum()` that rounds a number up if "ceil" is True and
 rounds it to the nearest integer if "ceil" if False
 ```{r}
+# Function here:
+
+# Run the Tests below to see if the function works as requested
 stopifnot(
   roundnum(5.1) == 5,
   roundnum(5.9) == 6,
