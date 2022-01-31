@@ -147,7 +147,7 @@ Without using the `mean()` function, calculate the mean of the dataset (1, 5, 3,
 
 ## Vectorized Tranformations on Vectors: R's Cycle Rule
 
-All of the math and logical operations in R (in fact, most operatoins in R)
+All of the math and logical operations in R (in fact, most operations in R)
 work as "vectorized" operations.  This means that if a calculation is meant for
 one value, it is automatically repeated for every value in the data structure.
 
@@ -281,45 +281,283 @@ Multiply these two datasets together: (-1, 0, 1, 0, -1) and (1, 2, 3, 4, 5)
 
 
 
-## Subsetting Data: Selecting Values from Vectors
+## Subsetting Data by Index: Selecting Values from Vectors
 
 Once you've collected data together, you're not stuck with all of your data;
-a subset of a dataset can also be extracted out!
+a "subset" (i.e. smaller part) of a dataset can also be extracted out!
 
+There are several different ways to subset your data in R; let's start with
+the most general one: the `[]` square brackets.
+
+
+  - `data[N]` to get the Nth value  (for example, `data[3]`)
+  - `data[indices]` to get multiple values at once  (for example, `data[c(1, 3, 5)]`)
+  - `data[-N]` to get all the values *except* the Nth   (for example, `data[-3]`)
+  
+  - `data[N:P]`  to get all the values from the Nth to the Pth:   (for example, `data[3:6]`)
+  - `data[N:length(data)]`  to get all the values from the Nth to the end  (for example, `data[3:length(data)]`)
+  - `data[-N:-P]`  to get all the values *except* the Nth through Pth:   (for example, `data[-3:-6]`)
+  
+  
+**Exercises**
+
+Subset out the requested values from the `data` vector given below:
+```{r}
+data <- 11:30
+data
+```
+
+Get the third value.
+```{r}
+data[3]
+```
+
+Get the fifth value.
+```{r}
+
+```
+
+
+Get all the values except the second values.
+```{r}
+
+```
+
+Get the first through fifth values.
+```{r}
+
+```
+
+
+Get the tenth through fourteenth values.
+```{r}
+
+```
+
+
+Get the tenth value to the end of the vector (note: have R calculate what the last index is for you)
+```{r}
+
+```
+
+
+Get the fifth value through the first value (result should be 15, 14, 13, 12, 11)
+```{r}
+
+```
+
+
+Reverse the order of the values
+```{r}
+
+```
+
+
+Get the fourth, sixth, ninth, and tenth values.
+```{r}
+
+```
+
+
+Get the second, tenth, and eleventh values.
+```{r}
+
+```
+
+Get every second value, starting with the first value.  
+(Hint: use the `seq()` function to make the vector of indices)
+```{r}
+
+```
+
+
+
+## Subsetting Data with Logical Values
+
+
+Unfortunately, most data doesn't come organized in a nice, orderly fashion, and 
+so we can't know when writing the code that we want the Nth value using the 
+techniques above.
+
+Instead, we have to *search* for the values we want. R has a lot of tools for doing
+this, and all of them involve three steps:
 
 
 ```{r}
-a <- 11:20
-a[2:5]
-?which
-a[a > 15]
-?subset
-subset(a, a > 15)
-a[which(a > 15)]
-a[2:length(a)]
+# 1. Define the dataset
+data <- c(2, 4, 3, 5)  # 
+data
+
+# 2. For each value in the dataset, determine if the value meets your search criteria.
+# (Turns each value into T or F, based on if it is greater than 3)
+isBig <- data > 3 
+isBig
+
+
+# 3. Subset out only the True values into a new vector.
+bigData <- data[isBig]  # S
+bigData
+```
+
+You can shorten the code by combining the last two steps (two ways shown below):
+```{r}
+# Approach 1: []
+data[data > 3]
+
+# Approach 2: the subset() function
+subset(data, data > 3)
+```
+
+
+
+
+**Exercises**
+
+Using the data provided below and the `length()`, `sum()`, and`mean()` functions,
+in the following list, please get a subset of the data and answer the following questions:
+
+
+Dataset:
+```{r}
+data <- c(1, 4, 8, 4, 9, 3, 2, 8, 3, 8, 32, 8, 2, 7, 3, 7, 1, 32, 4)
+data
+```
+
+Which values in the dataset are greater than 8?  How many are there?
+```{r}
+goodData <- data[data > 8]
+goodData
+length(goodData)
+```
+
+Which values in the dataset are less than 7?  How many are there?
+```{r}
+
+```
+
+
+Which values in the dataset are between 3 and 6?  What is the mean of their values?
+```{r}
+
+```
+
+
+What proportion of the dataset is equal to 8?
+```{r}
+
+```
+
+
+What proportion of the dataset is between 4 and 9?
+```{r}
+
+```
+
+
+What proportion of the first 10 values in the dataset is less than 5?
+```{r}
+
+```
+
+
+What proportion of the last 10 values in the dataset is less than 5?
+```{r}
+
 ```
 
 
 
 
 
+## Extra (Optional): Making Functions with a variable number of inputs
 
+Many functions in R have a special sumbol as an input: the "Elipsis" `...`
 
-## Functions with a variable number of inputs
+The ... is a special variable that holds any extra positional inputs. It can
+be used to create functions that accept unlimited inputs, which the function
+often makes a vector out of internally for calculation.
 
-
+For example, one can make a function that accepts a "data" vector:
 ```{r}
-av <- function(...){mean(c(...))}
-av(3, 4, 5)
-av(5)
-av(6, 7, 8, 9)
+average <- function(data){
+  mean(data)
+}
+
+average(c(1, 2, 3))  # Making the vector when the function is called.
+```
+
+Alternatively, one can make a function that builds a "data" vector internally:
+```{r}
+average <- function(...){
+  data <- c(...)  # Making a vector inside the function.
+  mean(data)
+}
+
+average(1, 2, 3)
+```
+
+You can combine the ... symbol with positional inputs and optional inputs.
+If R is not sure where to put the input, it will stick it in the ...
+```{r}
+showInputs <- function(x, ..., y=100){
+  print(x)
+  print(c(...))
+  print(y)
+}
+
+showInputs(1, 2, 3, 4, 5)
+```
+
+
+**Exercises**
+
+Make an `add()` function that takes a variable number of inputs to add.
+```{r}
+# function here
+
+# tests here
+stopifnot(
+  add(1) == 1,
+  add(1, 2) == 2,
+  add(2, 3) == 5,
+  add(1, 2, 3) == 6,
+  add(1, 2, 3, 4) == 10
+)
+print("Success!")
 ```
 
 
 
 
+Make a `math()` function that adds all the inputs if "add" is True, and multiplies them if not.
 ```{r}
-a <- function(..., x=5, y=3){x + y}
+# function here
 
+# tests here
+stopifnot(
+  math(1, 2) == 3,
+  math(1, 2, add=F) == 2,
+  math(1, 2, 3, 4, add=T) == 10,
+  math(1, 2, 3, 4, add=F) == 24
+)
+print("Success!")
+
+```
+
+
+
+Make an `isPositive()` function that returns a vector with a value for True for each positive number, and False for each nonpositive number.
+If "incZero" is True, then 0 is considered positive.  (Tip: Don't use the `ifelse()` function.)
+```{r}
+# function here
+
+
+# tests here
+stopifnot(
+  identical(isPositive(1, 2), c(T, T)),
+  identical(isPositive(-1, 0, 1), c(F, F, T)),
+  identical(isPositive(-1, 0, 1, incZero=T), c(F, T, T))
+)
+print("Success!")
 ```
 

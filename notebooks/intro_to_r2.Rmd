@@ -428,10 +428,7 @@ isPositive <- function(x, incZero=F){
 }
 ```
 
-In R, though, the best and easiest way to do this is with the `ifelse()` function,
-because it automatically "vectorizes" the if-else statement (we'll discuss
-vectorization in the next unit).  Here's an example:
-
+Another way is with the `ifelse()` function. Here's an example:
 ```
 isPositive <- function(x, incZero=F){ifelse(incZero == F, x > 0, x >= 0)}
 ```
